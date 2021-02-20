@@ -571,35 +571,3 @@ def select_best_10(supple_10_9, orig_10_6, supple_20_6, coverage_supple_20_6):
     return list(best) + selected
 
 
-def build_1_5_list(start_num, mhc_class, chosen, predictions):
-    """
-
-    :param start_num:
-    :param mhc_class:
-    :param chosen:
-    :param predictions:
-    :return:
-    """
-    temp = []
-
-    for allele, peptide, start, end, pIC50 in predictions:
-        if peptide in chosen:
-            # add tuple to temporary list
-            temp.append((peptide, allele, mhc_class, pIC50))
-
-    # sort temp by peptide
-    temp = sorted(temp, key=lambda x: x[0])
-
-    # set number for each peptide
-    curr_num = start_num
-    temp2 = []
-    visited = []
-
-    for peptide, allele, mhc_class, pIC50 in temp:
-        if peptide not in visited:
-            visited.append(peptide)
-            curr_num += 1
-
-        temp2.append((curr_num, peptide, allele, mhc_class, pIC50))
-
-    return temp2
