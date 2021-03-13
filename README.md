@@ -31,24 +31,24 @@ Use the regression models to predict pIC50 binding values for each (k-mer, allel
 ```
 for design limit D, set of alleles A, set of peptides P, and pIC50 threshold p_min:
 
-  limit P to peptides with pIC50 > p_min
+	limit P to peptides with pIC50 > p_min
 
-  U: set of uncovered alleles from A covered by at least one peptide in P
-  
-  S: set of selected peptides
+	U: set of uncovered alleles from A covered by at least one peptide in P
+
+	S: set of selected peptides
 
 
-  while |S| ≤ D and |U| > 0 and |P| > 0:
+	while |S| ≤ D and |U| > 0 and |P| > 0:
 
-    select allele a which is covered by fewest number of peptides in P
-    select first p in P which covers a
-    
-    add p to S
-    remove peptides from P which overlap with p
-    remove from U each allele covered by p
-    remove from U any alleles with nonzero coverage in revised P
-    
-  return S
+		select allele a which is covered by fewest number of peptides in P
+		select first p in P which covers a
+
+		add p to S
+		remove peptides from P which overlap with p
+		remove from U each allele covered by p
+		remove from U any alleles with nonzero coverage in revised P
+
+	return S
 ```
 
 #### Balanced Coverage
