@@ -22,14 +22,14 @@ Vaccine design functions and helper functions are implemented as Python package 
 - For each MHC class, subdivide the spike sequence into overlapping k-mers of matching length (9 or 15).
 Use the regression models to predict pIC50 binding values for each (k-mer, allele) combination.
 
-- Create data structure **P** to track the set of alleles covered by each peptide k-mer. Sort **P** by number of alleles covered, descending.
+- Create data structure P to track the set of alleles covered by each peptide k-mer. Sort P by number of alleles covered, descending.
 
 
 #### Minimum Coverage
 - Generate a peptide set which covers as many alleles in a single MHC class at least once. Order alleles so that the least-covered allele is covered first. Order peptides so that the peptide with the possible allele coverage is selected first.
 
 ```
-for a given design limit D, reference set of alleles A, and pIC50 threshold p_min:
+for design limit D, set of alleles A, set of peptides P, and pIC50 threshold p_min:
 
   limit P to peptides with pIC50 > p_min
 
