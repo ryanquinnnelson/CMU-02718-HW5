@@ -79,4 +79,4 @@ for design limit D, set of selected peptides S, and pIC50 value p_min:
 
 ```
 
-Note: Implementation attempts to increase coverage for each allele in C once, even if that allele remains the least-covered in C. Implementation should be revised to match pseudocode.
+Note: Implementation attempts to increase coverage for each allele in C once, even if that allele remains the least-covered in C and peptides remain in P which could cover that allele. Implementation should be revised to match pseudocode.
