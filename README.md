@@ -103,16 +103,13 @@ while |Fc| < |Df|:
 
 	
 	if Fc does not contain all peptides in Smin:
-
 		add peptide in Smin not in Fc to Fc
 
 
 	else if Fc does not contain all peptides in Sbal:
-
 		add peptide in Sbal not in Fc to Fc
 	
 	else:
-
 		set p_current to next highest p_min in design sets
 	
 return Fc
