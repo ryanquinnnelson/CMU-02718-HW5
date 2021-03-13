@@ -40,7 +40,7 @@ for a given design limit D, reference set of alleles A, and pIC50 threshold p_mi
 
   while |S| ≤ D and |U| > 0 and |P| > 0:
 
-    select allele a which is covered by fewest number of peptides
+    select allele a which is covered by fewest number of peptides in P
     remove a from U
 		
     select first p in P which covers a
