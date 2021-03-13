@@ -26,7 +26,7 @@ Use the regression models to predict pIC50 binding values for each (k-mer, allel
 
 
 #### Minimum Coverage
-- Generate a peptide set which covers as many alleles in a single MHC class at least once. Order alleles so that the least-covered allele is covered first. Order peptides so that each selection has the widest possible allele coverage.
+- Generate a peptide set which covers as many alleles in a single MHC class at least once. Order alleles so that the least-covered allele is covered first. Order peptides so that the peptide with the possible allele coverage is selected first.
 
 ```
 for a given design limit D, reference set of alleles A, and pIC50 threshold p_min:
