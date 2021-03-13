@@ -76,7 +76,6 @@ for design limit D, set of selected peptides S, and pIC50 value p_min:
 			add a to L
 
 	return S
-
 ```
 
 Note: Implementation attempts to increase coverage for each allele in C once, even if that allele remains the least-covered in C and peptides remain in P which could cover that allele. Implementation should be revised to match pseudocode.
@@ -115,7 +114,6 @@ while |Fc| < |Df|:
 		set p_current to next highest p_min in design sets
 	
 return Fc
-
 ```
 
 Note: When choosing from Smin or Sbal, implementation favors peptides which covers the most alleles.
