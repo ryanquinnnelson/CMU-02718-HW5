@@ -50,3 +50,33 @@ for design limit D, set of alleles A, set of peptides P, and pIC50 threshold p_m
     
   return S
 ```
+
+#### Balanced Coverage
+- Minimum coverage won't result in equal coverage of every allele in a given MHC class. With remaining design space, choose peptides to equalize coverage as much as possible. Order alleles so least-covered is improved first (non-zero only). 
+
+
+```
+for design limit D, set of selected peptides S, and pIC50 value p_min:
+
+	limit P to peptides with pIC50 > p_min and which are not in S
+
+	C: set of alleles covered by S
+
+	L: set of alleles for which no additional coverage can be found in P, initially empty
+
+	
+	while |S| ≤ D and |P| > 0 and |L| ≠ |C|:
+		
+		select allele a in C with the least coverage which is not in L
+		search for peptide p in P which covers a
+		if p exists:
+			add p to S
+			remove peptides from P which overlap with p
+		else:
+			add a to L
+
+	return S
+
+```
+
+Note: Implementation attempts to increase coverage for each allele in C once, even if that allele remains the least-covered in C. Implementation should be revised to match pseudocode.
