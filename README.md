@@ -46,7 +46,7 @@ for a given design limit D, reference set of alleles A, and pIC50 threshold p_mi
     add p to S
     remove peptides from P which overlap with p
     remove from U each allele covered by p
-    remove from U any alleles with nonzero coverage in P
+    remove from U any alleles with nonzero coverage in revised P
     
   return S
 ```
