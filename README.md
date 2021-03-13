@@ -38,7 +38,7 @@ for a given design limit D, reference set of alleles A, and pIC50 threshold p_mi
   S: set of selected peptides
 
 
-  while |S| < D and |U| > 0 and |P| > 0:
+  while |S| ≤ D and |U| > 0 and |P| > 0:
 
     select allele a which is covered by fewest number of peptides
     remove a from U
