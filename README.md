@@ -97,9 +97,9 @@ p_current = max{p_min for design sets}
 
 while |Fc| < |Df|:
 
-	Smin : set of min coverage peptides from design set using p_current as p_min
+	Smin : set of peptides in min_design set using p_current as p_min
 
-	Sbal : set of peptides added to balanced design set
+	Sbal : set of peptides in matching bal_design set which are not in Smin
 
 	
 	if Fc does not contain all peptides in Smin:
