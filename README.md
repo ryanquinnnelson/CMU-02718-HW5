@@ -80,3 +80,43 @@ for design limit D, set of selected peptides S, and pIC50 value p_min:
 ```
 
 Note: Implementation attempts to increase coverage for each allele in C once, even if that allele remains the least-covered in C and peptides remain in P which could cover that allele. Implementation should be revised to match pseudocode.
+
+#### Final Design
+- A final set of peptides must be selected from the design sets which have been generated. 
+- To balance coverage of MHC classes, half of the peptides in the final design will be chosen from the design sets of each MHC class. For each MHC class, selection considers all design sets generated from each combination of (D,p_min). The goal is to select peptides with the highest pIC50 values to maximize coverage.
+
+
+```
+Fc: final design set for a single MHC class
+
+Df: user-defined size of final design set
+
+p_current = max{p_min for design sets}
+
+
+while |Fc| < |Df|:
+
+	Smin : set of min coverage peptides from design set using p_current as p_min
+
+	Sbal : set of peptides added to balanced design set
+
+	
+	if Fc does not contain all peptides in Smin:
+
+		add peptide in Smin not in Fc to Fc
+
+
+	else if Fc does not contain all peptides in Sbal:
+
+		add peptide in Sbal not in Fc to Fc
+	
+	else:
+
+		set p_current to next highest p_min in design sets
+	
+return Fc
+
+```
+
+Note: When choosing from Smin or Sbal, implementation favors peptides which covers the most alleles.
+
