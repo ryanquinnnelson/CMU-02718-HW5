@@ -29,6 +29,7 @@ Use the regression models to predict pIC50 binding values for each (k-mer, allel
 - Generate a peptide set which covers as many alleles in a single MHC class at least once. Order alleles so that the least-covered allele is covered first. Order peptides so that the peptide with the possible allele coverage is selected first.
 
 ```
+min_designs = []
 for design limit D, set of alleles A, set of peptides P, and pIC50 threshold p_min:
 
 	limit P to peptides with pIC50 > p_min
@@ -48,7 +49,7 @@ for design limit D, set of alleles A, set of peptides P, and pIC50 threshold p_m
 		remove from U each allele covered by p
 		remove from U any alleles with nonzero coverage in revised P
 
-	return S
+	add S to min_designs
 ```
 
 #### Balanced Coverage
@@ -56,7 +57,8 @@ for design limit D, set of alleles A, set of peptides P, and pIC50 threshold p_m
 
 
 ```
-for design limit D, set of selected peptides S, and pIC50 value p_min:
+bal_designs = []
+for design limit D, set of selected peptides S in min_designs, and pIC50 value p_min:
 
 	limit P to peptides with pIC50 > p_min and which are not in S
 
@@ -75,7 +77,7 @@ for design limit D, set of selected peptides S, and pIC50 value p_min:
 		else:
 			add a to L
 
-	return S
+	add S to bal_designs
 ```
 
 Note: Implementation attempts to increase coverage for each allele in C once, even if that allele remains the least-covered in C and peptides remain in P which could cover that allele. Implementation should be revised to match pseudocode.
